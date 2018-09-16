@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 50px;
+}
+
+#container {
+  height: 400px !important;
+  width: 400px !important;
+  overflow: scroll;
+  border: 1px solid #9e9e9e;
+  margin: 1rem;
+}
+
+#minimap-container {
+  margin: 1rem;
+  border: 1px solid #9e9e9e;
+}
+
+#minimap-navigator {
+  position: fixed;
+  top: 587px;
+  left: 66px;
+  border: 1px solid #9e9e9e;
+  cursor: move;
+}

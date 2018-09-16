@@ -1,0 +1,90 @@
+<!-- 
+  Modified the code at http://resources.jointjs.com/tutorial/installation to fit this example.
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.css" />
+
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+
+<body>
+
+  <h1>jointjs-minimap-example</h1>
+  <h4><a href="https://github.com/vatz88/jointjs-minimap-example">View source here</a></h4>
+
+  <div id="container">
+    <div id="paper"></div>
+  </div>
+
+  <!-- minimap -->
+  <div id="minimap-container">
+    <div id="minimap-paper"></div>
+    <div id="minimap-navigator"></div>
+  </div>
+
+  <!-- dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jointjs/2.1.0/joint.js"></script>
+
+  <!-- code -->
+  <script type="text/javascript">
+    var config = {
+      paeprWidth: 800,
+      paperHeight: 800
+    };
+
+  </script>
+
+  <script type="text/javascript">
+    var graph = new joint.dia.Graph();
+    var paper = new joint.dia.Paper({
+      el: document.getElementById('paper'),
+      model: graph,
+      width: config.paeprWidth,
+      height: config.paperHeight,
+      gridSize: 1
+    });
+
+    var rect = new joint.shapes.standard.Rectangle();
+    rect.position(100, 30);
+    rect.resize(100, 40);
+    rect.attr({
+      body: {
+        fill: 'blue'
+      },
+      label: {
+        text: 'Hello',
+        fill: 'white'
+      }
+    });
+
+    var rect2 = rect.clone();
+    rect2.translate(400, 0);
+    rect2.attr('label/text', 'World!');
+
+    var link = new joint.shapes.standard.Link();
+    link.source(rect);
+    link.target(rect2);
+
+    var rect3 = rect.clone();
+    rect3.translate(0, 400);
+    rect3.attr('label/text', 'Foo');
+    var rect4 = rect3.clone();
+    rect4.translate(400, 0);
+    rect4.attr('label/text', 'Bar');
+    var link2 = new joint.shapes.standard.Link();
+    link2.source(rect3);
+    link2.target(rect4);
+
+  </script>
+
+  <!-- Minimap Script -->
+  <script src="./src/script.js"></script>
+</body>
+
+</html>
