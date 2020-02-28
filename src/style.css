@@ -1,25 +1,27 @@
 body {
   margin: 0;
-  padding: 50px;
+  padding: 0 50px 50px 50px;
 }
 
 #container {
+  display: inline-block;
   height: 400px !important;
   width: 400px !important;
   overflow: scroll;
   border: 1px solid #9e9e9e;
-  margin: 1rem;
 }
 
 #minimap-container {
+  position: relative;
+  display: inline-block;
   margin: 1rem;
   border: 1px solid #9e9e9e;
 }
 
 #minimap-navigator {
-  position: fixed;
-  top: 587px;
-  left: 66px;
+  position: absolute;
+  top: 0;
+  left: 0;
   border: 1px solid #9e9e9e;
   cursor: move;
 }
